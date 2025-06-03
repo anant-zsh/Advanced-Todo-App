@@ -1,0 +1,10 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: "outfit";
+  src: url('/fonts/Outfit-VariableFont_wght.ttf') format('truetype');
+}
+
+@theme{
+  --font-outfit: "outfit", monospace;
+}
