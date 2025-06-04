@@ -12,11 +12,12 @@ function App() {
   //   {input: 'Say hi to gran gran.', complete: true},
   // ]
 
-  const [todos, setTodos] = useState([{ input: 'Hello! Add your first todo.', complete: true }]);
+  const [todos, setTodos] = useState([{input: 'Hello! Add your first todo.', complete: true }]);
   const [selectedTab, setSelectedTab] = useState('Open');
 
   function handleAddTodo(newTodo) {
-    const newTodoList = [...todos, { input: newTodo, complete: false }]
+    const newTodoList = [...todos, {input: newTodo, complete: false }]
+    console.log(newTodoList)
     setTodos(newTodoList)
     handleSaveData(newTodoList)
   }
@@ -38,8 +39,8 @@ function App() {
     handleSaveData(newTodoList)
   }
 
-  function handleSaveData(crntTodos){
-    localStorage.setItem('chronicle', JSON.stringify({todos: crntTodos}))
+  function handleSaveData(crntTodos) {
+    localStorage.setItem('chronicle', JSON.stringify({ todos: crntTodos }))
   }
 
   useEffect(() => {
@@ -50,15 +51,17 @@ function App() {
 
   return (
     <div className="text-4xl font-outfit">
+      
       <Header todos={todos} />
       <Tabs selectedTab={selectedTab}
         setSelectedTab={setSelectedTab}
         todos={todos} />
+      <TodoInput handleAddTodo={handleAddTodo} />
       <TodoList todos={todos}
         selectedTab={selectedTab}
         handleDeleteTodo={handleDeleteTodo}
         handleEditTodo={handleEditTodo} />
-      <TodoInput handleAddTodo={handleAddTodo} />
+
     </div>
   )
 }

@@ -8,7 +8,8 @@ const TodoCard = (props) => {
             <p>{todo.input}</p>
             <div>
                 <button disabled={todo.complete}
-                        onClick={() => {handleEditTodo(todoIndex)}}>
+                        onClick={() => {handleEditTodo(todoIndex)
+                        }}>
                     <h6>Done</h6>
                 </button>
                 <button onClick={() => {handleDeleteTodo(todoIndex)}}>
